@@ -1,0 +1,78 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        class WebSite
+        {
+            public string nameWebSite = Convert.ToString("\"Имя сайта:\" Программист с 0");
+            public string PathToSite = "\"Путь к сайту:\" https://programing.com";
+            public string IpToSite = Convert.ToString("\"IP сайта:\" 198.168.0.1");
+            public string TitleForSite = "\"Описание сайта:\" Данный сайт создан для обучения новичков программированию с 0";
+
+        }
+        class Magazine
+        {
+            public string NameMagazine = "\"Название журнала: \" New York Times";
+            public string YearsReleaseMagazine = "\"Выход журнала: \" 1985";
+            public string DescriptionMagazine = "\"Описание журнала: \"The Wall Street Journal.";
+            public string NumberUser = "\"Номер телефона: \" 068 - 000 - 00 - 00";
+            public string UserGmail = "\"gmail журнала: \" newyorktimes1990@gmail.com";
+        }
+        class Store
+        {
+            public string NameStore = "\"Название магазина: \" CROOP";
+            public string AdressStore = "\"Адрес магазина: \" random 21\\2";
+            public string TitleStore = "\"Описание магазина: \" CROOP - магазин одежды";
+            public string ContactNumberStore = "\"Контактный номер телефона: \" 099 - 000 - 00 - 00";
+            public string GmailStore = "\"Почта магазина: \" croopofficial@gmail.com";
+
+        }
+        static void Main(string[] args)
+        {
+            //    WebSite WB = new WebSite();
+            //    Console.WriteLine(WB.nameWebSite);
+            //    Console.WriteLine();
+            //    Console.WriteLine(WB.PathToSite);
+            //    Console.WriteLine();
+            //    Console.WriteLine(WB.TitleForSite);
+            //    Console.WriteLine();
+            //    Console.WriteLine(WB.IpToSite);
+
+
+
+
+            //Magazine p = new Magazine();
+            //Console.WriteLine(p.NameMagazine);
+            //Console.WriteLine();
+            //Console.WriteLine(p.YearsReleaseMagazine);
+            //Console.WriteLine();
+            //Console.WriteLine(p.DescriptionMagazine);
+            //Console.WriteLine();
+            //Console.WriteLine(p.NumberUser);
+            //Console.WriteLine();
+            //Console.WriteLine(p.UserGmail);
+            Store b = new Store();
+            Console.WriteLine(b.NameStore);
+            Console.WriteLine();
+            Console.WriteLine(b.AdressStore);
+            Console.WriteLine();
+            Console.WriteLine(b.TitleStore);
+            Console.WriteLine();
+            Console.WriteLine(b.ContactNumberStore);
+            Console.WriteLine();
+            Console.WriteLine(b.GmailStore);
+            Console.WriteLine();
+
+        }
+    }
+}
