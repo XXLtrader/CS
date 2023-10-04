@@ -1,0 +1,93 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /*Створіть додаток, який відображає кількість парних, 
+непарних, унікальних елементів масиву*/
+            //int[] arr = new int[5];
+            //Random rand = new Random();
+            //int count = 0;
+            //int rez = 5;
+            //for(int i = 0; i < 5; i++)
+            //{
+            //    arr[i] = rand.Next(0, 10);
+
+            //    Console.Write(arr[i] + ", ");
+            //    if (arr[i] % 2 ==0)
+            //    {
+            //        count++;
+            //    }
+            //    else
+            //    {
+            //        rez -= count;
+            //    }
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine("Кол-во парных чисел {0}", count);
+            //Console.WriteLine("Кол-во отрицательных чисел {0}", rez);
+
+
+            /*Створіть додаток, який відображає кількість значень у 
+            масиві менше заданого параметра користувачем. Наприклад, 
+            кількість значень менших, ніж 7 (7 введено користувачем 
+            з клавіатури).*/
+            //int[] arr = new int[5];
+            //int userenter = Console.ReadLine().Length;
+            //Random rand = new Random();
+            //int count = 0;
+            //int rez = 0;
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    arr[i] = rand.Next(0, 10);
+
+            //    Console.Write(arr[i] + ", ");
+            //    if (arr[i] < userenter)
+            //    {
+            //        count++;
+            //    }
+            //    else
+            //    {
+            //        rez++;
+            //    }
+            //}
+            //Console.WriteLine("Кол-во чисел в массиве больше заданого {0}", count);
+            //Console.WriteLine("кол-во чисел в массиме меньше заданого {0}", rez);
+
+            /*Розробіть додаток, який знаходитиме мінімальне і 
+            максимальне значення у двовимірному масиві. */
+            //int[] arr = new int[5];
+            //Random random = new Random();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //        arr[i] = random.Next(0, 10);
+            //        Console.Write($"{arr[i]} \t");
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine("максимальное число " + arr.Max());
+            //Console.WriteLine("минимальное число " + arr.Min());
+
+
+
+
+
+
+            /*ористувач вводить речення з клавіатури. Вам необхідно підрахувати кількість слів у ньому*/
+//            Console.WriteLine("Введите слово");
+//string UserEnter = Console.ReadLine();
+//            int rez = UserEnter.Length;
+//            Console.WriteLine("Длина слова = " + rez);
+}
+}
+}
