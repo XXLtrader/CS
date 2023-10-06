@@ -1,0 +1,258 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class CaesarCipher
+    {
+        const string alfabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+
+        private string CodeEncode(string text, int k)
+        {
+            var fullAlfabet = alfabet + alfabet.ToLower();
+            var letterQty = fullAlfabet.Length;
+            var retVal = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                var c = text[i];
+                var index = fullAlfabet.IndexOf(c);
+                if (index < 0)
+                {
+                    
+                    retVal += c.ToString();
+                }
+                else
+                {
+                    var codeIndex = (letterQty + index + k) % letterQty;
+                    retVal += fullAlfabet[codeIndex];
+                }
+            }
+            return retVal;
+        }
+        public string Encrypt(string plainMessage, int key)
+            => CodeEncode(plainMessage, key);
+
+        
+        public string Decrypt(string encryptedMessage, int key)
+            => CodeEncode(encryptedMessage, -key);
+    }
+    static class MatrixExt
+    {
+        public static int RowsCount(this int[,] matrix)
+        {
+            return matrix.GetUpperBound(0) + 1;
+        }
+
+        public static int ColumnsCount(this int[,] matrix)
+        {
+            return matrix.GetUpperBound(1) + 1;
+        }
+    }
+    class Program
+    {
+        static int[,] GetMatrixFromConsole(string name)
+        {
+            Console.Write("Кількість рядків матриці {0}: ", name);
+            var n = int.Parse(Console.ReadLine());
+            Console.Write("Кількість стовпців матриці {0}: ", name);
+            var m = int.Parse(Console.ReadLine());
+
+            var matrix = new int[n, m];
+            for (var i = 0; i < n; i++)
+            {
+                for (var j = 0; j < m; j++)
+                {
+                    Console.Write("{0}[{1},{2}] = ", name, i, j);
+                    matrix[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            return matrix;
+        }
+
+        static void PrintMatrix(int[,] matrix)
+        {
+            for (var i = 0; i < matrix.RowsCount(); i++)
+            {
+                for (var j = 0; j < matrix.ColumnsCount(); j++)
+                {
+                    Console.Write(matrix[i, j].ToString().PadLeft(4));
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        static int[,] MatrixMultiplication(int[,] matrixA, int[,] matrixB)
+        {
+            if (matrixA.ColumnsCount() != matrixB.RowsCount())
+            {
+                throw new Exception("Множення не можливе! Кількість стовпців першої матриці не рівно кількості рядків другої матриці.");
+            }
+
+            var matrixC = new int[matrixA.RowsCount(), matrixB.ColumnsCount()];
+
+            for (var i = 0; i < matrixA.RowsCount(); i++)
+            {
+                for (var j = 0; j < matrixB.ColumnsCount(); j++)
+                {
+                    matrixC[i, j] = 0;
+
+                    for (var k = 0; k < matrixA.ColumnsCount(); k++)
+                    {
+                        matrixC[i, j] += matrixA[i, k] * matrixB[k, j];
+                    }
+                }
+            }
+
+            return matrixC;
+        }
+            static void Main(string[] args)
+        {
+
+            /*авдання 1
+Оголосити одновимірний (5 елементів) масив з назвою 
+A i двовимірний масив (3 рядки, 4 стовпці) дробових чисел 
+з назвою B. Заповнити одновимірний масив А числами, 
+введеними з клавіатури користувачем, а двовимірний 
+масив В — випадковими числами за допомогою циклів. 
+Вивести на екран значення масивів: масиву А — в один 
+рядок, масиву В — у вигляді матриці. 
+
+Знайти у даних 
+масивах загальний максимальний елемент, мінімальний 
+елемент, загальну суму усіх елементів, загальний добуток 
+усіх елементів, суму парних елементів масиву А, суму 
+непарних стовпців масиву В.*/
+            //int sum = 0;
+            //int[] a = new int[5];
+            //Random rnd = new Random();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.WriteLine("Заполните " + i + " элемент");
+            //    a[i] = int.Parse(Console.ReadLine());
+            //}
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write($"{a[i]} \t");
+            //}
+
+            //for(int i = 0; i < 5; i++)
+            //{
+            //    sum += a[i];
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine("Сумма всех єлементов = " + sum);
+            //Console.WriteLine("Максимальный элемент массива = " + a.Max());
+            //Console.WriteLine("Минимальный элемент массива = " + a.Min());
+
+            /////////////Заданиие с суммой не парных элементов не сделал
+
+            //int sumB = 0;
+            //double[,] b = new double[3, 4];
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    for (int j = 0; j < 4; j++)
+            //    {
+            //        b[i, j] = rnd.Next(15);
+            //        Console.Write($"{b[i, j]} \t");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+
+
+            ////////////задание 2 не сделал
+
+
+
+
+
+            /*Користувач вводить рядок із клавіатури. Необхідно 
+            зашифрувати цей рядок, використовуючи шифр Цезаря. 
+            З Вікіпедії:
+            ДОМАШНЄ ЗАВДАННЯ
+            1
+            Шифр Цезаря — це вид підстановочного шифру, в 
+            якому кожна буква відкритого тексту заміняється на ту, 
+            що віддалена від неї в алфавіті на сталу кількість позицій. 
+            Наприклад, у шифрі зі зсувом правіше на 3, замість A була б 
+            D, замість B-E, і т.д. Детальніше тут: https://uk.wikipedia.
+            org/wiki/Шифр_Цезаря.
+            Окрім механізму шифрування, реалізуйте механізм 
+            розшифрування.*/
+
+            //    var cipher = new CaesarCipher();
+            //    Console.Write("Введите текст: ");
+            //    var message = Console.ReadLine();
+            //    Console.Write("Введите ключ: ");
+            //    var secretKey = Convert.ToInt32(Console.ReadLine());
+            //    var encryptedText = cipher.Encrypt(message, secretKey);
+            //    Console.WriteLine("Зашифрованное сообщение: {0}", encryptedText);
+            //    Console.WriteLine("Расшифрованное сообщение: {0}", cipher.Decrypt(encryptedText, secretKey));
+            //    Console.ReadLine();
+
+
+
+            /*творіть додаток, який здійснює операції над матрицями:
+            ■ Множення матриці на число;
+            ■ Додавання матриць;
+            ■ Добуток матриць.*/
+
+            //Console.WriteLine("Програма для знаходження добутку двох матриць");
+
+            //var a = GetMatrixFromConsole("A");
+            //var b = GetMatrixFromConsole("B");
+
+            //Console.WriteLine("Матриця A:");
+            //PrintMatrix(a);
+
+            //Console.WriteLine("Матриця B:");
+            //PrintMatrix(b);
+
+            //var result = MatrixMultiplication(a, b);
+            //Console.WriteLine("Добуток матриць:");
+            //PrintMatrix(result);
+
+            //Console.ReadLine();
+
+            /*Користувач з клавіатури вводить до рядка арифметичний вираз. Додаток має підрахувати його результат. 
+            Необхідно дотримуватися лише двох операцій: + і –.
+            */
+
+            ///не знаю сделал ли так, суть задания не очень понял
+            int[] arr = new int[5];
+            Random rand = new Random();
+            int UserEnter = 0;
+            for(int i = 0; i < 5; i++)
+            {
+                arr[i] = rand.Next(20);
+            }
+            Console.WriteLine("массив до: ");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"{arr[i]} \t");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Введите число: ");
+            UserEnter = int.Parse(Console.ReadLine());
+            Console.WriteLine("массив после: ");
+            for (int i = 0; i < 5; i++)
+            {
+                arr[i] += UserEnter;
+                Console.Write($"{arr[i]} \t");
+                Console.WriteLine();
+            }
+            //// 6 - 7 не сделал!
+        }
+}
+}
