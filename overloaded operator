@@ -1,0 +1,49 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        class Magazine
+        {
+            public string NameMagazine = "\"Название журнала: \" New York Times";
+            public string YearsReleaseMagazine = "\"Выход журнала: \" 1985";
+            public string DescriptionMagazine = "\"Описание журнала: \"The Wall Street Journal.";
+            public string NumberUser = "\"Номер телефона: \" 068 - 000 - 00 - 00";
+            public string UserGmail = "\"gmail журнала: \" newyorktimes1990@gmail.com";
+            public int worker = 11;
+        }
+        static void Main(string[] args)
+        {
+            Magazine p = new Magazine();
+            Console.WriteLine(p.NameMagazine);
+            Console.WriteLine();
+            Console.WriteLine(p.YearsReleaseMagazine);
+            Console.WriteLine();
+            Console.WriteLine(p.DescriptionMagazine);
+            Console.WriteLine();
+            Console.WriteLine(p.NumberUser);
+            Console.WriteLine();
+            Console.WriteLine(p.UserGmail);
+            Console.WriteLine();
+            Console.WriteLine("Enter a quantity worker");
+            int UserEnter = Convert.ToInt32(Console.ReadLine());
+            if(p.worker == UserEnter)
+            {
+                Console.WriteLine("true");
+            }
+            else
+            {
+                Console.WriteLine("false");
+            }
+        }
+    }
+}
