@@ -1,0 +1,124 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        class Money
+        {
+            public int cash = 0;
+            public int kopeks = 0;
+            public string curerncy = "";
+        }
+        class Product {
+            public int product1 = 0;
+
+            public int product2 = 0;
+
+            public int product3 = 0;
+
+            public int product4 = 0;
+
+        }
+        class device {
+            public string kettle = "Чайник";
+            public string microwave = "Микроволновка";
+            public string car = "RX7";
+            public string StatsKettle = "Фастом кепитит воду";
+            public string StatsMacroWave = "Быстро греет еду";
+            public string StatsCar = "Mazda RX-7 — спортивный автомобиль, выпускавшийся японским автопроизводителем Mazda с 1978 по 2002 год";
+            public string soundketlte = "типо звук чайника";
+            public string soundmicrowave = "типо звук микроволновки";
+            public string soundcar = "Звук RX7 = https://www.youtube.com/watch?v=lgPy1j8EBn4";
+        }
+        class MusicalInstrument
+        {
+            public string sound = "звук скрипки";
+            public string show = "скрипка";
+            public string desc = "Скри́пка — смычковый музыкальный инструмент с четырьмя струнами, настроенными по квинтам: Gм D1 A1 E2. Самая высокая регистровая разновидность скрипичного семейства, \nниже которой располагаются альт, виолончель и контрабас. Скрипка немецкого мастера И.";
+            public string history = "1520";
+            public string soundt = "звук тромбона";
+            public string showt = "тромбон";
+            public string desct = "Тромбон — разнообразный по штрихам и технически подвижный инструмент, обладает ярким, блестящим тембром в среднем и верхнем регистрах, сумрачным — в нижнем. \nПоявился в XV веке, современный вид приобрёл в середине XIX века. \nШироко применяется в опере и джазе.";
+            public string historyt = "год создания тромбона 15 век+-";
+            public string soundu = "звук укулели";
+            public string showu = "укулели";
+            public string descu = "Укулеле — струнный щипковый музыкальный инструмент, миниатюрная четырёхструнная гавайская гитара. В переводе с гавайского «укулеле» — прыгающая блоха";
+            public string historyu = "1880";
+
+
+        }
+        static void Main(string[] args)
+        {
+            device z = new device();
+            MusicalInstrument m = new MusicalInstrument();
+            //            Money p = new Money();
+            //            Product b = new Product();
+            //            Console.WriteLine("Введите кол-во наличных");
+            //            p.cash = Convert.ToInt32(Console.ReadLine());
+            //            Console.WriteLine("Введите кол-во вашей мелочи");
+            //            p.kopeks = Convert.ToInt32(Console.ReadLine());
+            //            if(p.kopeks > 100)
+            //            {
+            //                Console.WriteLine("Мелочи не может быть больше 99");
+            //            }
+            //else
+            //            {
+            //            }
+            //            Console.WriteLine("Какая у вас валюта");
+            //            p.curerncy = Console.ReadLine();
+            //            Console.WriteLine("Итого у вас " + p.cash + "." + p.kopeks + " " + p.curerncy);
+
+
+
+            //            Console.WriteLine("Введите цену первого продукта");
+            //            b.product1 = Convert.ToInt32(Console.ReadLine());
+            //            Console.WriteLine("Цена первого продукта  = " + b.product1);
+
+
+            //            Console.WriteLine("Введите цену второго продукта");
+            //            b.product2 = Convert.ToInt32(Console.ReadLine());
+            //            Console.WriteLine("Цена второго продукта  = " + b.product2); 
+
+
+            //            Console.WriteLine("Введите цену третьего продукта");
+            //            b.product3 = Convert.ToInt32(Console.ReadLine());
+            //            Console.WriteLine("Цена третьего продукта  = " + b.product3); 
+
+
+            //            Console.WriteLine("Введите цену четвертого продукта");
+            //            b.product4 = Convert.ToInt32(Console.ReadLine());
+            //            Console.WriteLine("Цена четвертого продукта  = " + b.product4);
+            //Console.WriteLine(z.kettle);
+            //Console.WriteLine(z.microwave);
+            //Console.WriteLine(z.car);
+            //Console.WriteLine(z.StatsKettle);
+            //Console.WriteLine(z.StatsMacroWave);
+            //Console.WriteLine(z.StatsCar);
+            //Console.WriteLine(z.soundketlte);
+            //Console.WriteLine(z.soundmicrowave);
+            //Console.WriteLine(z.soundcar);
+            Console.WriteLine(m.sound);
+            Console.WriteLine(m.show);
+            Console.WriteLine(m.desc);
+            Console.WriteLine(m.history);
+            Console.WriteLine(m.soundt);
+            Console.WriteLine(m.showt);
+            Console.WriteLine(m.desct);
+            Console.WriteLine(m.historyt);
+            Console.WriteLine(m.soundu);
+            Console.WriteLine(m.showu);
+            Console.WriteLine(m.descu);
+            Console.WriteLine(m.historyu);
+
+        }
+    }
+}
