@@ -1,0 +1,125 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+            /*Створіть інтерфейс ICalc. У ньому мають бути два
+методи:
+■ int Less(int valueToCompare) — повертає кількість
+менших значень, ніж valueToCompare;
+■ int Greater(intvalueToCompare) — повертає кількість
+більших значень, ніж valueToCompare.
+Клас, створений раніше у практичному завданні Array,
+має імплементувати інтерфейс ICalc.
+Метод Less — повертає кількість елементів масиву
+менших, ніж valueToCompare.
+Метод Greater — повертає кількість елементів масиву
+більших, ніж valueToCompare.
+Напишіть код для тестування отриманої функціональності.*/
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+
+
+        //static void Less(int valueToCompare)
+        //{
+        //    int[] arr = new int[5];
+        //    Random rnd = new Random();
+        //    int count = 0;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        arr[i] = rnd.Next(0, 20);
+        //        Console.Write(arr[i] + " ");
+        //    }
+        //    for(int i = 0; i < 5; i++)
+        //    {
+        //        if (arr[i] < valueToCompare)
+        //        {
+        //            count++;
+        //        }
+        //        else
+        //        {
+
+        //        }
+        //    }
+        //    Console.WriteLine();
+        //    Console.WriteLine("Чисел меньше заданого диапозона = " + count);
+        //}
+        //static void Greater(int valueToCompare)
+        //{
+        //    int[] arr = new int[5];
+        //    Random rnd = new Random();
+        //    int count = 0;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        arr[i] = rnd.Next(0, 20);
+        //        Console.Write(arr[i] + " ");
+        //    }
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        if (arr[i] > valueToCompare)
+        //        {
+        //            count++;
+        //        }
+        //        else
+        //        {
+
+        //        }
+        //    }
+        //    Console.WriteLine();
+        //    Console.WriteLine("Чисел больше заданого диапозона = " + count);
+        //}
+
+
+        /*        /// <summary>
+        /// /не сделал
+        /// </summary>
+        /// <param name="args"></param>
+        /* Створіть інтерфейс IOutput2.У ньому мають бути
+        два методи:
+        ■ void ShowEven() — відображає парні значення контейнера з даними;
+        ■ void ShowOdd() — відображає непарні значення контейнера з даними.*/
+
+
+        static void ShowEvenAndOdd()
+        {
+            int[] arr = new int[5];
+            Random rnd = new Random();
+            int count = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                arr[i] = rnd.Next(0, 20);
+                Console.Write(arr[i] + " ");
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                if (arr[i] % 2 == 0)
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Парных числе  = " + count);
+            int rez = 5;
+            rez -= count;
+            Console.WriteLine();
+            Console.WriteLine("Не парных чисел =  " + rez);
+            //задание 3 не сделал 
+        }
+        static void Main(string[] args)
+{
+    int wo = 10;
+    //Less(wo);
+    int wt = 5;
+            //Greater(wt);
+            //ShowEven1();
+            ShowEvenAndOdd();
+
+}
+}
+}
