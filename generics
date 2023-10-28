@@ -1,0 +1,104 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+///////////////////////////////////////////////////////////////// сделал половину задания не понял зачем надо foreach
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        public static void oceanar()
+        {
+            string FishName = "Риба виду Neoclinus blanchard";
+            string BioName = "До того, як цей морський мешканець відкриває рот, її зовнішність не особливо відрізняється від зовнішності звичайних риб, хоча у неї є дивні зморшкуваті щоки.";
+            Console.WriteLine(FishName);
+            Console.WriteLine();
+            Console.WriteLine(BioName);
+            Console.WriteLine();
+            string FishName2 = "Риба виду Морська мухоловка";
+            string BioName2 = "Може здатися, що цих істот дістали з дна ударного кратера якоїсь чужої планети, проте вони живуть на Землі, \tточніше, в глибоководних каньйонах недалеко від Каліфорнії. Вказані створіння закріплюються на дні і спокійно чекають, поки нічого не підозрююча жертва пропливе поруч з їх роззявленою пащею.";
+            Console.WriteLine(FishName2);
+            Console.WriteLine();
+            Console.WriteLine(BioName2);
+            Console.WriteLine();
+            string FishName3 = "Це жива істота виду Astroscopus guttatus";
+            string BioName3 = " З не найпривабливішою зовнішністю отримала назву крапчастий звіздар. Така назва викликає асоціації з якою-небудь дрібною яскравою рибкою з великими очима, проте ця риба зовсім не така.";
+            Console.WriteLine(FishName3);
+            Console.WriteLine();
+            Console.WriteLine(BioName3);
+            Console.WriteLine();
+        }
+        public static void fb()
+        {
+            string lf = "Sostav barselona";
+            string fn1 = "Андер Астралага";
+            string fn2 = " Диего Кочен";
+            string fn3 = "Иньяки Пенья";
+            string fn4 = "Марк-Андре тер Стеген";
+            string fn5 = "Алекс Бальде";
+            string fn6 = "Андреас Кристенсен";
+            string fn7 = "Жоау Канселу";
+            string fn8 = "Жюль Кунде";
+            string fn9 = " Иньиго Мартинес";
+            Console.WriteLine("\t\t\t", lf);
+            Console.WriteLine();
+            Console.WriteLine(fn1);
+            Console.WriteLine();
+            Console.WriteLine(fn2);
+            Console.WriteLine();
+            Console.WriteLine(fn3);
+            Console.WriteLine();
+            Console.WriteLine(fn4);
+            Console.WriteLine();
+            Console.WriteLine(fn5);
+            Console.WriteLine();
+            Console.WriteLine(fn6);
+            Console.WriteLine();
+            Console.WriteLine(fn7);
+            Console.WriteLine();
+            Console.WriteLine(fn8);
+            Console.WriteLine();
+            Console.WriteLine(fn9);
+        }
+        public static void cf()
+        {
+            string wk = "Колво работников 4";
+            string profit = "15000";
+            string nw = "Angelo Taylor";
+            string nw2 = "Adam Henderson";
+            string nw3 = "Austin Bennett";
+            string nw4 = "Anderson Gonzalez";
+            Console.WriteLine(wk);
+            Console.WriteLine(profit);
+            Console.WriteLine(nw);
+            Console.WriteLine(nw2);
+            Console.WriteLine(nw3);
+                Console.WriteLine(nw4);
+        }
+        static void Main(string[] args)
+        {
+            /*Створіть клас «Океанаріум» з інформацією про «мешканців» Океанаріуму. Створіть клас для кожної істоти 
+Океанаріуму. Вони мають містити інформацію про кожну 
+морську істоту. Реалізуйте підтримку ітератора для класу 
+«Океанаріум». Протестуйте можливість використання 
+foreach для Океанаріуму*/
+            //oceanar();
+            /*Створіть клас «Футбольна Команда». Клас має містити 
+            інформацію про гравців футбольної команди. Реалізуйте 
+            підтримку ітератора для класу «Футбольна Команда». 
+            Протестуйте можливість використання foreach для класу 
+            «Футбольна Команда».*/
+            //fb();
+            /*творіть клас «Кафе» з інформацією про працівників кафе. Реалізуйте підтримку ітератора для класу 
+            «Кафе». Протестуйте можливість використання foreach
+            для «Кафе»*/
+            cf();
+
+}
+}
+}
