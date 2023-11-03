@@ -1,0 +1,232 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System;
+using System.Text.RegularExpressions;
+
+public static class IntExtensions
+{
+    //задание 1
+    //public static bool IsOdd(this int number)
+    //{
+    //    return number % 2 != 0;
+    //}
+    //задание 2
+    //public static bool IsEven(this int number)
+    //{
+    //    return number % 2 == 0;
+    //}
+    //задание 3
+    //public static bool IsPrime(this int number)
+    //{
+    //    if (number <= 1)
+    //        return false;
+
+    //    if (number <= 3)
+    //        return true;
+
+    //    if (number % 2 == 0 || number % 3 == 0)
+    //        return false;
+
+    //    for (int i = 5; i * i <= number; i += 6)
+    //    {
+    //        if (number % i == 0 || number % (i + 2) == 0)
+    //            return false;
+    //    }
+
+    //    return true;
+    //}
+}
+
+public static class StringExtensions
+{
+    //задаине  4
+    //public static int CountVowels(this string str)
+    //{
+    //        if (string.IsNullOrEmpty(str))
+    //        {
+    //            return 0;
+    //        }
+    //        char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+    //        int count = str.Count(c => vowels.Contains(Char.ToLower(c)));
+    //        return count;
+    //    }
+    //задание 5
+    //public static int CountConsonants(this string str)
+    //{
+    //    if (string.IsNullOrEmpty(str))
+    //    {
+    //        return 0;
+    //    }
+    //    char[] consonants = { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
+    //    int count = str.Count(c => consonants.Contains(Char.ToLower(c)));
+    //    return count;
+    //}
+
+    //задание 6
+    //public static int CountSentences(this string str)
+    //{
+    //    if (string.IsNullOrEmpty(str))
+    //    {
+    //        return 0;
+    //    }
+    //    string pattern = @"[.!?]";
+    //    MatchCollection matches = Regex.Matches(str, pattern);
+    //    return matches.Count;
+    //}
+
+    //задание 7
+}
+//record Person(string FirstName, string LastName, int Age);
+
+//public static class PersonExtensions
+//{
+//    public static Person FindYoungest(this Person[] people)
+//    {
+//        return people.OrderBy(p => p.Age).FirstOrDefault();
+//    }
+
+//    public static Person FindOldest(this Person[] people)
+//    {
+//        return people.OrderByDescending(p => p.Age).FirstOrDefault();
+//    }
+
+//    public static double CalculateAverageAge(this Person[] people)
+//    {
+//        if (people.Length == 0)
+//            return 0;
+
+//        double totalAge = people.Sum(p => p.Age);
+//        return totalAge / people.Length;
+//    }
+//}
+
+//заание 8
+//record Point3D(double X, double Y, double Z);
+
+//public static class Point3DExtensions
+//{
+//    public static double CalculateDistance(this Point3D point1, Point3D point2)
+//    {
+//        double deltaX = point1.X - point2.X;
+//        double deltaY = point1.Y - point2.Y;
+//        double deltaZ = point1.Z - point2.Z;
+
+//        return Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+//    }
+
+//    public static (Point3D, Point3D, double) FindMaxDistancePair(this Point3D[] points)
+//    {
+//        if (points.Length < 2)
+//        {
+//            throw new InvalidOperationException("Масив має містити принаймні дві точки.");
+//        }
+
+//        Point3D maxPoint1 = points[0];
+//        Point3D maxPoint2 = points[1];
+//        double maxDistance = maxPoint1.CalculateDistance(maxPoint2);
+
+//        for (int i = 0; i < points.Length; i++)
+//        {
+//            for (int j = i + 1; j < points.Length; j++)
+//            {
+//                double distance = points[i].CalculateDistance(points[j]);
+//                if (distance > maxDistance)
+//                {
+//                    maxDistance = distance;
+//                    maxPoint1 = points[i];
+//                    maxPoint2 = points[j];
+//                }
+//            }
+//        }
+
+//        return (maxPoint1, maxPoint2, maxDistance);
+//    }
+//}
+class Program
+    {
+        static void Main(string[] args)
+        {
+        //задание 1
+        //int evenNumber = 4;
+        //int oddNumber = 7;
+
+        //Console.WriteLine($"{evenNumber} є непарним числом: {evenNumber.IsOdd()}");
+        //Console.WriteLine($"{oddNumber} є непарним числом: {oddNumber.IsOdd()}");
+
+        //задание 2
+        //int evenNumber = 4;
+        //int oddNumber = 7;
+
+        //Console.WriteLine($"{evenNumber} є парним числом: {evenNumber.IsEven()}");
+        //Console.WriteLine($"{oddNumber} є парним числом: {oddNumber.IsEven()}");
+
+        //задание 3
+        //int primeNumber = 17;
+        //int nonPrimeNumber = 12;
+
+        //Console.WriteLine($"{primeNumber} є простим числом: {primeNumber.IsPrime()}");
+        //Console.WriteLine($"{nonPrimeNumber} є простим числом: {nonPrimeNumber.IsPrime()}");
+
+
+        //задание 4 
+        //string inputString = "Це є тестовий рядок для розрахунку голосних літер";
+
+        //int vowelCount = inputString.CountVowels();
+        //Console.WriteLine($"Кількість голосних літер в рядку: {vowelCount}");
+
+        //задание 5
+        //string inputString = "Це є тестовий рядок для розрахунку приголосних літер";
+
+        //int consonantCount = inputString.CountConsonants();
+        //Console.WriteLine($"Кількість приголосних літер в рядку: {consonantCount}");
+
+        //задание 6
+        //string inputString = "Це є тестовий рядок. Це ще одне речення! І це третє. І четверте?";
+
+        //int sentenceCount = inputString.CountSentences();
+        //Console.WriteLine($"Кількість речень в рядку: {sentenceCount}");
+
+        //задание 7
+        //Person[] people = {
+        //new Person("Іван", "Петров", 30),
+        //new Person("Марія", "Сидоренко", 25),
+        //new Person("Павло", "Коваленко", 35),
+        //new Person("Олена", "Іванова", 28),
+        //new Person("Андрій", "Смирнов", 40)
+
+        //var youngest = people.FindYoungest();
+        //var oldest = people.FindOldest();
+        //double averageAge = people.CalculateAverageAge();
+
+        //Console.WriteLine("Молодша людина:");
+        //Console.WriteLine($"Ім'я: {youngest.FirstName}, Прізвище: {youngest.LastName}, Вік: {youngest.Age}");
+
+        //Console.WriteLine("\nСтарша людина:");
+        //Console.WriteLine($"Ім'я: {oldest.FirstName}, Прізвище: {oldest.LastName}, Вік: {oldest.Age}");
+
+        //Console.WriteLine($"\nСередній вік людей: {averageAge}");
+
+        //задание 8
+            //Point3D[] points = {
+            //new Point3D(1.0, 2.0, 3.0),
+            //new Point3D(4.0, 5.0, 6.0),
+            //new Point3D(7.0, 8.0, 9.0),
+            //new Point3D(10.0, 11.0, 12.0)
+
+            //(Point3D point1, Point3D point2, double maxDistance) = points.FindMaxDistancePair();
+
+            //Console.WriteLine("Точка 1:");
+            //Console.WriteLine($"X: {point1.X}, Y: {point1.Y}, Z: {point1.Z}");
+            //Console.WriteLine("\nТочка 2:");
+            //Console.WriteLine($"X: {point2.X}, Y: {point2.Y}, Z: {point2.Z}");
+            //Console.WriteLine($"\nМаксимальна відстань між точками: {maxDistance}");
+
+        }
+    }
