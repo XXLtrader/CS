@@ -1,0 +1,211 @@
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System;
+using System.Text.RegularExpressions;
+//задание 1
+//class Play
+//{
+//    private string title;
+//    private string authorName;
+//    private string genre;
+//    private int year;
+//    public Play(string title, string authorName, string genre, int year)
+//    {
+//        this.title = title;
+//        this.authorName = authorName;
+//        this.genre = genre;
+//        this.year = year;
+//    }
+//    public string Title
+//    {
+//        get { return title; }
+//        set { title = value; }
+//    }
+//    public string AuthorName
+//    {
+//        get { return authorName; }
+//        set { authorName = value; }
+//    }
+//    public string Genre
+//    {
+//        get { return genre; }
+//        set { genre = value; }
+//    }
+//    public int Year
+//    {
+//        get { return year; }
+//        set { year = value; }
+//    }
+//    public void DisplayInfo()
+//    {
+//        Console.WriteLine($"Назва п'єси: {title}");
+//        Console.WriteLine($"Автор: {authorName}");
+//        Console.WriteLine($"Жанр: {genre}");
+//        Console.WriteLine($"Рік: {year}");
+//    }
+//    ~Play()
+//    {
+//        Console.WriteLine($"П'єса {title} була знищена (використання деструктора).");
+//    }
+//}
+
+//задание 2
+class Store
+{
+    public string Name { get; set; }
+    public string Address { get; set; }
+    public StoreType Type { get; set; }
+
+    public Store(string name, string address, StoreType type)
+    {
+        Name = name;
+        Address = address;
+        Type = type;
+    }
+}
+
+enum StoreType
+{
+    Grocery,
+    Hardware,
+    Clothing,
+    Footwear
+}
+
+//задание 3
+
+class Play : IDisposable
+{
+    private string title;
+    private string authorName;
+    private string genre;
+    private int year;
+    private bool disposed = false;
+
+    public Play(string title, string authorName, string genre, int year)
+    {
+        this.title = title;
+        this.authorName = authorName;
+        this.genre = genre;
+        this.year = year;
+    }
+
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+    }
+
+    public string AuthorName
+    {
+        get { return authorName; }
+        set { authorName = value; }
+    }
+
+    public string Genre
+    {
+        get { return genre; }
+        set { genre = value; }
+    }
+
+    public int Year
+    {
+        get { return year; }
+        set { year = value; }
+    }
+
+    public void DisplayInfo()
+    {
+        if (disposed)
+        {
+            throw new ObjectDisposedException(nameof(Play), "Об'єкт Play було видалено.");
+        }
+
+        Console.WriteLine($"Назва п'єси: {title}");
+        Console.WriteLine($"Автор: {authorName}");
+        Console.WriteLine($"Жанр: {genre}");
+        Console.WriteLine($"Рік: {year}");
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposed)
+        {
+            if (disposing)
+            {
+                // Виконати очищення ресурсів, якщо вони є
+            }
+
+            disposed = true;
+        }
+    }
+
+    ~Play()
+    {
+        Dispose(false);
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        //задание 1
+        Play play1 = new Play("Ромео і Джульєтта", "Вільям Шекспір", "Трагедія", 1597);
+        Play play2 = new Play("Гамлет", "Вільям Шекспір", "Трагедія", 1601);
+        play1.DisplayInfo();
+        Console.WriteLine();
+        play2.DisplayInfo();
+        Console.WriteLine();
+
+        //задание 2
+        Store groceryStore = new Store("Магазин продуктів", "вул. Головна, 123", StoreType.Grocery);
+        Store hardwareStore = new Store("Магазин господарських товарів", "вул. Робоча, 456", StoreType.Hardware);
+        Store clothingStore = new Store("Магазин одягу", "вул. Модна, 789", StoreType.Clothing);
+        Store footwearStore = new Store("Магазин взуття", "вул. Взуттєва, 101", StoreType.Footwear);
+
+        Console.WriteLine("Інформація про магазини:");
+        Console.WriteLine($"Магазин: {groceryStore.Name}");
+        Console.WriteLine($"Адреса: {groceryStore.Address}");
+        Console.WriteLine($"Тип: {groceryStore.Type}");
+        Console.WriteLine();
+
+        Console.WriteLine($"Магазин: {hardwareStore.Name}");
+        Console.WriteLine($"Адреса: {hardwareStore.Address}");
+        Console.WriteLine($"Тип: {hardwareStore.Type}");
+        Console.WriteLine();
+
+        Console.WriteLine($"Магазин: {clothingStore.Name}");
+        Console.WriteLine($"Адреса: {clothingStore.Address}");
+        Console.WriteLine($"Тип: {clothingStore.Type}");
+        Console.WriteLine();
+
+        Console.WriteLine($"Магазин: {footwearStore.Name}");
+        Console.WriteLine($"Адреса: {footwearStore.Address}");
+        Console.WriteLine($"Тип: {footwearStore.Type}");
+
+        //задание 3
+        using (Play play1 = new Play("Ромео і Джульєтта", "Вільям Шекспір", "Трагедія", 1597))
+        {
+            play1.DisplayInfo();
+            Console.WriteLine();
+        }
+        using (Play play2 = new Play("Гамлет", "Вільям Шекспір", "Трагедія", 1601))
+        {
+            play2.DisplayInfo();
+            Console.WriteLine();
+        }
+    }
+}
