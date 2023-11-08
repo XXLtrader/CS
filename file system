@@ -1,0 +1,132 @@
+
+
+using System;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Xml.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ///задание 1
+
+        //        Console.WriteLine("Введіть шлях до файлу:");
+        //            string filePath = Console.ReadLine();
+
+        //            if (File.Exists(filePath))
+        //            {
+        //                string fileContent = File.ReadAllText(filePath);
+        //                Console.WriteLine("Вміст файлу:");
+        //                Console.WriteLine(fileContent);
+        //            }
+
+        //            Console.WriteLine(fileContent);
+        //else
+        //            {
+        //                Console.WriteLine("Помилка: Файл не існує.");
+        //            }
+        //    }
+
+        //задание 2
+        //        Console.WriteLine("Введіть розмір масиву:");
+        //        int size = int.Parse(Console.ReadLine());
+
+        //        int[] array = new int[size];
+
+        //        for (int i = 0; i < size; i++)
+        //        {
+        //            Console.Write($"Введіть значення для елементу {i + 1}: ");
+        //            array[i] = int.Parse(Console.ReadLine());
+
+        //            Console.WriteLine("Масив введено. Введіть ім'я файлу для збереження:");
+        //        }
+        //        string fileName = Console.ReadLine();
+
+        //        try
+        //        {
+
+        //            {
+        //                using (StreamWriter writer = new StreamWriter(fileName))
+        //                {
+        //                    foreach (int element in array)
+        //                    {
+        //                        writer.WriteLine(element);
+        //                    }
+        //                }
+
+        //                Console.WriteLine($"Масив був збережений у файл {fileName}");
+        //catch (Exception ex)
+        //        {
+        //            Console.WriteLine($"Помилка при збереженні файлу: {ex.Message}");
+        //        }
+
+        //задание 5
+        //Console.WriteLine("Введіть шлях до файлу:");
+        //string filePath = Console.ReadLine();
+
+        //if (File.Exists(filePath))
+        //{
+        //    Console.WriteLine("Введіть слово для пошуку:");
+        //    string wordToSearch = Console.ReadLine();
+
+        //    string fileContent = File.ReadAllText(filePath);
+
+        //    bool wordFound = fileContent.Contains(wordToSearch);
+
+        //    if (wordFound)
+        //    {
+        //        Console.WriteLine($"Слово '{wordToSearch}' знайдено.");
+
+        //        int wordCount = fileContent.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+        //                                   .Count(word => word == wordToSearch);
+
+        //        string reversedWord = new string(wordToSearch.Reverse().ToArray());
+        //        int reversedWordCount = fileContent.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+        //                                           .Count(word => word == reversedWord);
+        //        Console.WriteLine($"Кількість входжень слова '{reversedWord}' у зворотному порядку: {reversedWordCount}");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"Слово '{wordToSearch}' не знайдено в файлі.");
+        //    }
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Помилка: Файл не існує.");
+        //}
+
+
+        //задание 6
+        Console.WriteLine("Введіть шлях до файлу:");
+        string filePath = Console.ReadLine();
+
+        if (File.Exists(filePath))
+        {
+            string fileContent = File.ReadAllText(filePath);
+            string[] sentences = fileContent.Split(new char[] { '.', '!', '?' });
+            int sentenceCount = sentences.Length;
+            int uppercaseCount = fileContent.Count(char.IsUpper);
+            int lowercaseCount = fileContent.Count(char.IsLower);
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+
+
+            int vowelCount = fileContent.Count(c => vowels.Contains(char.ToLower(c)));
+            int consonantCount = fileContent.Count(c => char.IsLetter(c) && !vowels.Contains(char.ToLower(c)));
+
+            int digitCount = fileContent.Count(char.IsDigit);
+
+            Console.WriteLine($"Кількість речень: {sentenceCount}");
+            Console.WriteLine($"Кількість великих літер: {uppercaseCount}");
+            Console.WriteLine($"Кількість маленьких літер: {lowercaseCount}");
+            Console.WriteLine($"Кількість голосних літер: {vowelCount}");
+            Console.WriteLine($"Кількість приголосних літер: {consonantCount}");
+            Console.WriteLine($"Кількість цифр: {digitCount}");
+        }
+        else
+        {
+            Console.WriteLine("Помилка: Файл не існує.");
+        }
+    }
+}
