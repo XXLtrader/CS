@@ -1,0 +1,62 @@
+using System;
+using System.Linq;
+using System.IO;
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        //задание 1
+        //int[] numbers = { 3, 8, 12, 5, 14, 21, 7, 28, 36, 44, 52, 63 };
+        //int[] allNumbers = numbers.ToArray();
+        //int[] evenNumbers = numbers.Where(n => n % 2 == 0).ToArray();
+        //int[] oddNumbers = numbers.Where(n => n % 2 != 0).ToArray();
+        //int threshold = 20;
+        //int[] greaterThanThreshold = numbers.Where(n => n > threshold).ToArray();
+        //int minRange = 10;
+        //int maxRange = 40;
+        //int[] numbersInRange = numbers.Where(n => n >= minRange && n <= maxRange).ToArray();
+        //int multipleOfSeven = 7;
+        //int[] multiplesOfSeven = numbers.Where(n => n % multipleOfSeven == 0).OrderBy(n => n).ToArray();
+        //int multipleOfEight = 8;
+        //int[] multiplesOfEight = numbers.Where(n => n % multipleOfEight == 0).OrderByDescending(n => n).ToArray();
+        //Console.WriteLine("Весь масив цілих: " + string.Join(", ", allNumbers));
+        //Console.WriteLine("Парні цілі: " + string.Join(", ", evenNumbers));
+        //Console.WriteLine("Непарні цілі: " + string.Join(", ", oddNumbers));
+        //Console.WriteLine($"Значення більше {threshold}: " + string.Join(", ", greaterThanThreshold));
+        //Console.WriteLine($"Числа в діапазоні від {minRange} до {maxRange}: " + string.Join(", ", numbersInRange));
+        //Console.WriteLine($"Числа, кратні {multipleOfSeven} та відсортовані за зростанням: " + string.Join(", ", multiplesOfSeven));
+        //Console.WriteLine($"Числа, кратні {multipleOfEight} та відсортовані за спаданням: " + string.Join(", ", multiplesOfEight));
+
+        //задание 2
+        //Console.WriteLine("Введіть шлях до файлу:");
+        //string filePath = Console.ReadLine();
+
+        //if (File.Exists(filePath))
+        //{
+        //    string fileContent = File.ReadAllText(filePath);
+        //    string[] sentences = fileContent.Split(new char[] { '.', '!', '?' });
+        //    int sentenceCount = sentences.Length;
+        //    int uppercaseCount = fileContent.Count(char.IsUpper);
+        //    int lowercaseCount = fileContent.Count(char.IsLower);
+        //    char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+        //    int vowelCount = fileContent.Count(c => vowels.Contains(char.ToLower(c)));
+        //    int consonantCount = fileContent.Count(c => char.IsLetter(c) && !vowels.Contains(char.ToLower(c)));
+        //    int digitCount = fileContent.Count(char.IsDigit);
+
+        //    Console.WriteLine($"Кількість речень: {sentenceCount}");
+        //    Console.WriteLine($"Кількість великих літер: {uppercaseCount}");
+        //    Console.WriteLine($"Кількість маленьких літер: {lowercaseCount}");
+        //    Console.WriteLine($"Кількість голосних літер: {vowelCount}");
+        //    Console.WriteLine($"Кількість приголосних літер: {consonantCount}");
+        //    Console.WriteLine($"Кількість цифр: {digitCount}");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Помилка: Файл не існує.");
+        //}
+
+        //задание 3
+        //не сделал
+    }
+}
