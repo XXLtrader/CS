@@ -1,0 +1,108 @@
+using System;
+using System.Reflection.Emit;
+using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace BankDepositCalculator
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+            Label labelPrincipal = new Label();
+            labelPrincipal.Text = "Начальная сумма вклада:";
+            labelPrincipal.AutoSize = true;
+
+            NumericUpDown numericPrincipal = new NumericUpDown();
+            numericPrincipal.Minimum = 0;
+            numericPrincipal.Maximum = decimal.MaxValue;
+
+            Label labelInterestRate = new Label();
+            labelInterestRate.Text = "Процентная ставка (%):";
+            labelInterestRate.AutoSize = true;
+
+            NumericUpDown numericInterestRate = new NumericUpDown();
+            numericInterestRate.Minimum = 0;
+            numericInterestRate.Maximum = 100;
+
+            Label labelYears = new Label();
+            labelYears.Text = "Срок вклада (годы):";
+            labelYears.AutoSize = true;
+
+            NumericUpDown numericYears = new NumericUpDown();
+            numericYears.Minimum = 0;
+            numericYears.Maximum = int.MaxValue;
+
+            RadioButton radioButtonSimple = new RadioButton();
+            radioButtonSimple.Text = "Простой процент";
+
+            RadioButton radioButtonCompound = new RadioButton();
+            radioButtonCompound.Text = "Сложный процент";
+
+            Button calculateButton = new Button();
+            calculateButton.Text = "Рассчитать";
+            calculateButton.Click += CalculateButton_Click;
+
+            Label labelResult = new Label();
+            labelResult.Text = "Конечная сумма:";
+            labelResult.AutoSize = true;
+
+            TextBox textBoxResult = new TextBox();
+            textBoxResult.ReadOnly = true;
+
+  
+            TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
+            tableLayoutPanel.AutoSize = true;
+            tableLayoutPanel.ColumnCount = 2;
+            tableLayoutPanel.RowCount = 8;
+            tableLayoutPanel.Controls.Add(labelPrincipal, 0, 0);
+            tableLayoutPanel.Controls.Add(numericPrincipal, 1, 0);
+            tableLayoutPanel.Controls.Add(labelInterestRate, 0, 1);
+            tableLayoutPanel.Controls.Add(numericInterestRate, 1, 1);
+            tableLayoutPanel.Controls.Add(labelYears, 0, 2);
+            tableLayoutPanel.Controls.Add(numericYears, 1, 2);
+            tableLayoutPanel.Controls.Add(radioButtonSimple, 0, 3);
+            tableLayoutPanel.Controls.Add(radioButtonCompound, 1, 3);
+            tableLayoutPanel.Controls.Add(calculateButton, 0, 4);
+            tableLayoutPanel.Controls.Add(labelResult, 0, 5);
+            tableLayoutPanel.Controls.Add(textBoxResult, 1, 5);
+
+            this.Controls.Add(tableLayoutPanel);
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+
+            decimal principal = numericPrincipal.Value;
+            decimal interestRate = numericInterestRate.Value / 100;
+            int years = (int)numericYears.Value;
+
+            decimal result = 0;
+
+            if (radioButtonSimple.Checked)
+            {
+                result = principal * (1 + interestRate * years);
+            }
+            else if (radioButtonCompound.Checked)
+            {
+                result = principal * (decimal)Math.Pow((double)(1 + interestRate), years);
+            }
+
+            textBoxResult.Text = result.ToString("C2"); 
+        }
+
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
+        }
+    }
+}
